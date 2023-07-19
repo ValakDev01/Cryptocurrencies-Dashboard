@@ -22,6 +22,10 @@ export interface CoinData {
 }
 
 function App() {
+  const [value, setValue] = useState<CoinData[]>([]);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+
   return (
     <div className="App">
       
