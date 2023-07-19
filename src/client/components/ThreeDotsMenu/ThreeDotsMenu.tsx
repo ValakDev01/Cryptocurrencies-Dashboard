@@ -7,6 +7,25 @@ interface ThreeDotsMenuProps {
 }
 
 const ThreeDotsMenu: React.FC<ThreeDotsMenuProps> = ({isHovered}) => {
+    const [isThreeDotsHovered, setIsThreeDotsHovered] = useState<boolean>(false);
+    const [clickedThreeDots, setClickedThreeDots] = useState<boolean>(false);
+
+    const handleMouseEnterThreeDots = () => {
+        setIsThreeDotsHovered(true);
+    };
+
+    const handleMouseLeaveThreeDots = () => {
+        setIsThreeDotsHovered(false);
+    };
+
+    const handleClickedThreeDotsOn = () => {
+        setClickedThreeDots(true);
+    };
+
+    const handleClickedThreeDotsOff = () => {
+        setClickedThreeDots(false);
+    };
+
     return (
         <div>ThreeDotsMenu</div>
     )
