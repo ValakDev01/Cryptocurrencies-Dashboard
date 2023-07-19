@@ -27,7 +27,22 @@ const ThreeDotsMenu: React.FC<ThreeDotsMenuProps> = ({isHovered}) => {
     };
 
     return (
-        <div>ThreeDotsMenu</div>
+        <div
+            className={`${isThreeDotsHovered && isHovered ? "threeDotsContainer threeDotsStyleOn" : "threeDotsContainer threeDotsStyleOff"} ${isHovered && !isThreeDotsHovered ? "threeDotsStyleBackground" : ""}`}
+            onMouseEnter={handleMouseEnterThreeDots}
+            onMouseLeave={() => {handleMouseLeaveThreeDots(); handleClickedThreeDotsOff();}}
+            onClick={handleClickedThreeDotsOn}
+        >
+            <div className="threeDotsInnerContainer">
+                <BsThreeDotsVertical className="threeDotsIcon" />
+                {clickedThreeDots && isHovered && (
+                    <div className="notificationStar2">
+                        <div className="triangle2"></div>
+                        <div className="content2"><span>Hide</span></div>
+                    </div>
+                )}
+            </div>
+        </div>
     )
 }
 
