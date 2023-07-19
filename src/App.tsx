@@ -69,8 +69,20 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
-      
+    <div className="table-container">
+      <FixedTable
+        value={value}
+        hoveredItem={hoveredItem}
+        handleMouseEnterRow={handleMouseEnterRow}
+        handleMouseLeaveRow={handleMouseLeaveRow}
+        />
+        <ScrollableTable
+          value={value}
+          hoveredItem={hoveredItem}
+          handleMouseEnterRow={handleMouseEnterRow}
+          handleMouseLeaveRow={handleMouseLeaveRow}
+        />
+        {isVisible && <ScrollToTopButton />}
     </div>
   );
 }
