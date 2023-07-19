@@ -18,7 +18,17 @@ const ScrollableTable: React.FC<ScrollableTableProps> = ({
     handleMouseLeaveRow
 }) => {
     return (
-        <div>ScrollableTable</div>
+        <div className="scrollable-table">
+            <table className="fontWeight">
+                <ScrollableTableHead />
+                <ScrollableTableBody
+                    value={value}
+                    hoveredItem={hoveredItem}
+                    handleMouseEnterRow={handleMouseEnterRow}
+                    handleMouseLeaveRow={handleMouseLeaveRow}
+                />
+            </table>
+        </div>
     )
 }
 
