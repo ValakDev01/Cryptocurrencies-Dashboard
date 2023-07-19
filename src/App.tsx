@@ -21,10 +21,17 @@ export interface CoinData {
   total_supply: number;
 }
 
-function App() {
+const App: React.FC = () => {
   const [value, setValue] = useState<CoinData[]>([]);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=9b08de90-b259-4fac-9f94-66b420c41538')
+      .then(res => res.json())
+      .then(data => setValue(data.data))
+      .catch(err => console.log(err));
+  }, []);
 
   return (
     <div className="App">
