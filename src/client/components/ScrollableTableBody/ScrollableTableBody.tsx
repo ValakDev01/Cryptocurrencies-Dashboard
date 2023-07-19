@@ -16,6 +16,19 @@ const ScrollableTableBody: React.FC<ScrollableTableBodyProps> = ({
     handleMouseEnterRow,
     handleMouseLeaveRow
 }) => {
+    const formatNumber = (value: number) => {
+        return value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    };
+
+    const getPercentChangeColor = (value: number) => {
+        if (value <= 0) {
+            return "red";
+        } else if (value > 0) {
+            return "#16C784";
+        }
+        return "";
+    };
+
     return (
         <div>ScrollableTableBody</div>
     )
