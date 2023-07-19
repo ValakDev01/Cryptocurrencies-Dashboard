@@ -33,6 +33,18 @@ const App: React.FC = () => {
       .catch(err => console.log(err));
   }, []);
 
+  useEffect(() => {
+    const tableContainer = document.querySelector(".table-container") as HTMLDivElement;
+
+    tableContainer.addEventListener('scroll', () => {
+      if (tableContainer.scrollTop > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    });
+  }, []);
+
   return (
     <div className="App">
       
