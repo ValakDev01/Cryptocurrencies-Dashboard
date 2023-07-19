@@ -18,8 +18,20 @@ const FixedTable: React.FC<FixedTableProps> = ({
     handleMouseEnterRow,
     handleMouseLeaveRow
 }) => {
+    const [selectedItem, setSelectedItem] = useState<number | null>(null);
+
     return (
-        <div>FixedTable</div>
+        <table className="fixed-table">
+            <FixedTableHead />
+            <FixedTableBody
+                value={value}
+                selectedItem={selectedItem}
+                setSelectedItem={setSelectedItem}
+                hoveredItem={hoveredItem}
+                handleMouseEnterRow={handleMouseEnterRow}
+                handleMouseLeaveRow={handleMouseLeaveRow}
+            />
+        </table>
     )
 }
 
