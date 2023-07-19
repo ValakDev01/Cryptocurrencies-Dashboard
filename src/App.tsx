@@ -45,6 +45,21 @@ const App: React.FC = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const tableContainer = document.querySelector(".table-container") as HTMLDivElement;
+    const fixedTable = document.querySelector(".fixed-table") as HTMLElement;
+
+    if (tableContainer && fixedTable) {
+      tableContainer.addEventListener('scroll', () => {
+        if (tableContainer.scrollLeft > 0) {
+          fixedTable.style.boxShadow = '4px 0 5px rgba(0, 0, 0, 0.1)';
+        } else {
+          fixedTable.style.boxShadow = '';
+        }
+      });
+    }
+  }, []);
+
   return (
     <div className="App">
       
