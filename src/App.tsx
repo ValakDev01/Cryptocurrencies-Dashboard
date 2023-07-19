@@ -60,6 +60,14 @@ const App: React.FC = () => {
     }
   }, []);
 
+  const handleMouseEnterRow = (index: number) => {
+    setHoveredItem(index);
+  };
+
+  const handleMouseLeaveRow = () => {
+    setHoveredItem(null);
+  };
+
   return (
     <div className="App">
       
