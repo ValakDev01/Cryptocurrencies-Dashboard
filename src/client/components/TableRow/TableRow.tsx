@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { FaRegStar } from 'react-icons/fa';
 import { CoinData } from "../../../App";
 import './TableRow.css';
