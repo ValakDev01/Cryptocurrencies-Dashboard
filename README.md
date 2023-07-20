@@ -1,4 +1,4 @@
-# Cryptocurrencies-Dashboard 🟡
+# Cryptocurrencies-Dashboard ₿
 ## Description
 Cryptocurrency Dashboard is an application for tracking current data on various cryptocurrencies. 
 It uses the CoinMarketCap API to fetch the latest information on prices, percentage changes, market capitalization, and more.
