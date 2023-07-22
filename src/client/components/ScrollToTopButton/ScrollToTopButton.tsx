@@ -1,19 +1,19 @@
-import React from "react";
-import { IoMdArrowRoundUp } from 'react-icons/io';
-import './ScrollToTopButton.css';
+import React from 'react'
+import { IoMdArrowRoundUp } from 'react-icons/io'
+import './ScrollToTopButton.css'
 
 const ScrollToTopButton: React.FC = () => {
-    const scrollToTop = () => {
-        const tableContainer = document.querySelector(".table-container") as HTMLDivElement;
+  const scrollToTop = (): void => {
+    const tableContainer = document.querySelector('.table-container') as HTMLDivElement
 
-        tableContainer.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    tableContainer.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
-    return (
-        <div className="scroll-to-top-button" onClick={scrollToTop}>
-            <IoMdArrowRoundUp />
-        </div>
-    )
+  return (
+    <div className="scroll-to-top-button" onClick={scrollToTop}>
+      <IoMdArrowRoundUp />
+    </div>
+  )
 }
 
-export default ScrollToTopButton;
+export default ScrollToTopButton
