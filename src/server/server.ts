@@ -102,3 +102,9 @@ app.get('/api/hiddenCurrencies', (_req: any, res: any) => {
     res.status(500).json({ error: 'Error fetching hidden currencies' })
   }
 })
+
+app.listen(3007, () => {
+  console.log('Example app listening on port 3007!')
+})
+
+export { app }
