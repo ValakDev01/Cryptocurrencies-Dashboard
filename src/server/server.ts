@@ -93,3 +93,12 @@ app.post('/api/unhideCurrency', (req: any, res: any) => {
 
   res.json({ message: 'Currency unhidden successfully.' })
 })
+
+app.get('/api/hiddenCurrencies', (_req: any, res: any) => {
+  try {
+    res.json(hiddenCurrencies)
+  } catch (error) {
+    console.error('Error fetching hidden currencies:', error)
+    res.status(500).json({ error: 'Error fetching hidden currencies' })
+  }
+})
