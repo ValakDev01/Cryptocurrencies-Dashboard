@@ -31,7 +31,8 @@ app.get('/api', async (_req: any, res: any) => {
     ) {
       console.log('Serving data from cache')
       visibleCryptocurrencies = cachedData.filter(
-        (currency) => !((hiddenCurrencies[currency.id]?.hidden) ?? false) ?? false
+        (currency) =>
+          !(hiddenCurrencies[currency.id]?.hidden ?? false) ?? false
       )
     } else {
       const apiKey = '9b08de90-b259-4fac-9f94-66b420c41538'
@@ -46,7 +47,8 @@ app.get('/api', async (_req: any, res: any) => {
       cacheTimestamp = Date.now()
 
       visibleCryptocurrencies = cryptocurrencies.filter(
-        (currency: { id: string | number }) => !((hiddenCurrencies[currency.id]?.hidden) ?? false)
+        (currency: { id: string | number }) =>
+          !(hiddenCurrencies[currency.id]?.hidden ?? false)
       )
     }
 
@@ -88,7 +90,8 @@ app.post('/api/hideCurrency', (req: any, res: any) => {
 app.post('/api/unhideCurrency', (req: any, res: any) => {
   const { currencyId } = req.body
 
-  const { [currencyId]: deletedCurrency, ...updatedHiddenCurrencies } = hiddenCurrencies
+  const { [currencyId]: deletedCurrency, ...updatedHiddenCurrencies } =
+    hiddenCurrencies
   hiddenCurrencies = updatedHiddenCurrencies
 
   res.json({ message: 'Currency unhidden successfully.' })

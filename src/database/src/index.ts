@@ -9,10 +9,14 @@ interface CoinData {
   hidden: boolean
 }
 
-async function updateCoinDatabase (data: Record<string, CoinData>): Promise<void> {
+async function updateCoinDatabase (
+  data: Record<string, CoinData>
+): Promise<void> {
   const existingCoins = await AppDataSource.manager.find(CoinInfo)
 
-  const coinsToRemove = existingCoins.filter((coin) => !(coin.id.toString() in data))
+  const coinsToRemove = existingCoins.filter(
+    (coin) => !(coin.id.toString() in data)
+  )
 
   if (coinsToRemove.length > 0) {
     console.log('Usuwanie przestarzałych monet z bazy danych...')
@@ -42,7 +46,9 @@ AppDataSource.initialize()
     const coins = await AppDataSource.manager.find(CoinInfo)
     console.log('Wczytane monety: ', coins)
   })
-  .catch((error) => { console.log(error) })
+  .catch((error) => {
+    console.log(error)
+  })
 
 async function fetchCoinInfo (): Promise<any> {
   try {
