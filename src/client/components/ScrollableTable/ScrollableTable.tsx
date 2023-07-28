@@ -9,13 +9,15 @@ interface ScrollableTableProps {
   hoveredItem: number | null
   handleMouseEnterRow: (index: number) => void
   handleMouseLeaveRow: () => void
+  handleHideCurrency: (index: string) => void
 }
 
 const ScrollableTable: React.FC<ScrollableTableProps> = ({
   value,
   hoveredItem,
   handleMouseEnterRow,
-  handleMouseLeaveRow
+  handleMouseLeaveRow,
+  handleHideCurrency
 }) => {
   return (
     <div className="scrollable-table">
@@ -26,6 +28,7 @@ const ScrollableTable: React.FC<ScrollableTableProps> = ({
           hoveredItem={hoveredItem}
           handleMouseEnterRow={handleMouseEnterRow}
           handleMouseLeaveRow={handleMouseLeaveRow}
+          handleHideCurrency={handleHideCurrency}
         />
       </table>
     </div>

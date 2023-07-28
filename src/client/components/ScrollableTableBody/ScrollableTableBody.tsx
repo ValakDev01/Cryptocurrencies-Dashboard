@@ -8,13 +8,15 @@ interface ScrollableTableBodyProps {
   hoveredItem: number | null
   handleMouseEnterRow: (index: number) => void
   handleMouseLeaveRow: () => void
+  handleHideCurrency: (index: string) => void
 }
 
 const ScrollableTableBody: React.FC<ScrollableTableBodyProps> = ({
   value,
   hoveredItem,
   handleMouseEnterRow,
-  handleMouseLeaveRow
+  handleMouseLeaveRow,
+  handleHideCurrency
 }) => {
   const formatNumber = (value: number): string => {
     return value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
@@ -116,7 +118,7 @@ const ScrollableTableBody: React.FC<ScrollableTableBodyProps> = ({
               />
             </td>
             <td>
-              <ThreeDotsMenu isHovered={isHovered} />
+              <ThreeDotsMenu isHovered={isHovered} handleHideCurrency={handleHideCurrency} itemId={item.id} />
             </td>
           </tr>
         )

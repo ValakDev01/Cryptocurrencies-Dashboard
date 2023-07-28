@@ -151,6 +151,8 @@ const App: React.FC = () => {
           hoveredItem={hoveredItem}
           handleMouseEnterRow={handleMouseEnterRow}
           handleMouseLeaveRow={handleMouseLeaveRow}
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          handleHideCurrency={handleHideCurrency}
         />
         {isVisible && <ScrollToTopButton />}
 
@@ -159,6 +161,7 @@ const App: React.FC = () => {
           hiddenCurrencies={hiddenCurrencies}
           showHiddenCurrencies={showHiddenCurrencies}
           setShowHiddenCurrencies={setShowHiddenCurrencies}
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
           handleUnhideCurrency={handleUnhideCurrency}
           isVisible={isVisible}
         />
