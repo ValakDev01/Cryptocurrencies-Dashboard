@@ -3,6 +3,7 @@ import FixedTable from './client/components/FixedTable/FixedTable'
 import ScrollableTable from './client/components/ScrollableTable/ScrollableTable'
 import ScrollToTopButton from './client/components/ScrollToTopButton/ScrollToTopButton'
 import HiddenCurrenciesBox from './client/components/HiddenCurrenciesBox/HiddenCurrenciesBox'
+import 'reflect-metadata'
 import axios from 'axios'
 import './App.css'
 
