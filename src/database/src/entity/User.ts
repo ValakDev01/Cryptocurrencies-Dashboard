@@ -1,18 +1,16 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity()
-export class User {
+export class CoinInfo {
+  @PrimaryGeneratedColumn()
+    id!: number
 
-    @PrimaryGeneratedColumn()
-    id: number
+  @Column()
+    name!: string
 
-    @Column()
-    firstName: string
+  @Column()
+    symbol!: string
 
-    @Column()
-    lastName: string
-
-    @Column()
-    age: number
-
+  @Column()
+    isHidden!: boolean
 }
