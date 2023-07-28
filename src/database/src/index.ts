@@ -1,20 +1,57 @@
-import { AppDataSource } from "./data-source"
-import { User } from "./entity/User"
+import { AppDataSource } from './data-source'
+import { CoinInfo } from './entity/User'
+import axios from 'axios'
 
-AppDataSource.initialize().then(async () => {
+interface CoinData {
+  id: number
+  name: string
+  symbol: string
+  hidden: boolean
+}
 
-    console.log("Inserting a new user into the database...")
-    const user = new User()
-    user.firstName = "Timber"
-    user.lastName = "Saw"
-    user.age = 25
-    await AppDataSource.manager.save(user)
-    console.log("Saved a new user with id: " + user.id)
+async function updateCoinDatabase (data: Record<string, CoinData>): Promise<void> {
+  const existingCoins = await AppDataSource.manager.find(CoinInfo)
 
-    console.log("Loading users from the database...")
-    const users = await AppDataSource.manager.find(User)
-    console.log("Loaded users: ", users)
+  const coinsToRemove = existingCoins.filter((coin) => !(coin.id.toString() in data))
 
-    console.log("Here you can setup and run express / fastify / any other framework.")
+  if (coinsToRemove.length > 0) {
+    console.log('Usuwanie przestarzałych monet z bazy danych...')
+    await AppDataSource.manager.remove(coinsToRemove)
+  }
 
-}).catch(error => console.log(error))
+  console.log('Aktualizacja/Wstawianie monet do bazy danych...')
+  for (const key in data) {
+    const coinData = data[key]
+    const coin = new CoinInfo()
+    coin.id = coinData.id
+    coin.name = coinData.name
+    coin.symbol = coinData.symbol
+    coin.isHidden = coinData.hidden
+    await AppDataSource.manager.save(coin)
+    console.log(`Zapisano/Zaktualizowano monetę o identyfikatorze: ${coin.id}`)
+  }
+}
+
+AppDataSource.initialize()
+  .then(async () => {
+    const data = await fetchCoinInfo()
+
+    await updateCoinDatabase(data)
+
+    console.log('Ładowanie monet z bazy danych...')
+    const coins = await AppDataSource.manager.find(CoinInfo)
+    console.log('Wczytane monety: ', coins)
+  })
+  .catch((error) => { console.log(error) })
+
+async function fetchCoinInfo (): Promise<any> {
+  try {
+    const response = await axios.get(
+      'http://localhost:3007/api/hiddenCurrencies'
+    )
+    const data = response.data
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}
