@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import FixedTable from './client/components/FixedTable/FixedTable'
 import ScrollableTable from './client/components/ScrollableTable/ScrollableTable'
 import ScrollToTopButton from './client/components/ScrollToTopButton/ScrollToTopButton'
+import HiddenCurrenciesBox from './client/components/HiddenCurrenciesBox/HiddenCurrenciesBox'
 import axios from 'axios'
 import './App.css'
 
@@ -100,6 +101,7 @@ const App: React.FC = () => {
     } catch (error) {
       console.error('Error unhiding currency:', error)
     }
+  }
 
   useEffect(() => {
     const tableContainer = document.querySelector('.table-container') as HTMLDivElement
@@ -164,4 +166,5 @@ const App: React.FC = () => {
     </div>
   )
 }
+
 export default App
