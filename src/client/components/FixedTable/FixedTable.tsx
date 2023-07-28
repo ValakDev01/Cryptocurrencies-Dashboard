@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FixedTableHead from '../FixedTableHead/FixedTableHead'
 import FixedTableBody from '../FixedTableBody/FixedTableBody'
 import type { CoinData } from '../../../App'
@@ -17,15 +17,11 @@ const FixedTable: React.FC<FixedTableProps> = ({
   handleMouseEnterRow,
   handleMouseLeaveRow
 }) => {
-  const [selectedItem, setSelectedItem] = useState<number | null>(null)
-
   return (
     <table className="fixed-table">
       <FixedTableHead />
       <FixedTableBody
         value={value}
-        selectedItem={selectedItem}
-        setSelectedItem={setSelectedItem}
         hoveredItem={hoveredItem}
         handleMouseEnterRow={handleMouseEnterRow}
         handleMouseLeaveRow={handleMouseLeaveRow}

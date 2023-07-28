@@ -1,11 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TableRow from '../TableRow/TableRow'
 import type { CoinData } from '../../../App'
 
 interface FixedTableBodyProps {
   value: CoinData[]
-  selectedItem: number | null
-  setSelectedItem: React.Dispatch<React.SetStateAction<number | null>>
   hoveredItem: number | null
   handleMouseEnterRow: (index: number) => void
   handleMouseLeaveRow: () => void
@@ -13,12 +11,12 @@ interface FixedTableBodyProps {
 
 const FixedTableBody: React.FC<FixedTableBodyProps> = ({
   value,
-  selectedItem,
-  setSelectedItem,
   hoveredItem,
   handleMouseEnterRow,
   handleMouseLeaveRow
 }) => {
+  const [selectedItem, setSelectedItem] = useState<number | null>(null)
+
   return (
     <tbody>
       {value?.map((item: CoinData, index: number) => {
