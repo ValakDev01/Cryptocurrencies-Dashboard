@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import FixedTable from './client/components/FixedTable/FixedTable'
 import ScrollableTable from './client/components/ScrollableTable/ScrollableTable'
 import ScrollToTopButton from './client/components/ScrollToTopButton/ScrollToTopButton'
+import axios from 'axios'
 import './App.css'
 
 export interface CoinData {
@@ -25,15 +26,25 @@ const App: React.FC = () => {
   const [value, setValue] = useState<CoinData[]>([])
   const [isVisible, setIsVisible] = useState<boolean>(false)
   const [hoveredItem, setHoveredItem] = useState<number | null>(null)
+  const [hiddenCurrencies, setHiddenCurrencies] = useState<Record<string, CoinData>>({})
+  const [showHiddenCurrencies, setShowHiddenCurrencies] = useState(false)
 
   useEffect(() => {
-    const fetchData = async (): Promise<void> => {
+    async function fetchData (): Promise<void> {
       try {
-        const res = await fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=9b08de90-b259-4fac-9f94-66b420c41538')
-        const data = await res.json()
-        setValue(data.data)
-      } catch (err) {
-        console.error(err)
+        const response = await axios.get('http://localhost:3007/api')
+        const data = response.data
+
+        setValue(data)
+
+        const hiddenResponse = await axios.get(
+          'http://localhost:3007/api/hiddenCurrencies'
+        )
+        const hiddenData = hiddenResponse.data
+
+        setHiddenCurrencies(hiddenData)
+      } catch (error) {
+        console.error('Error fetching data:', error)
       }
     }
 
