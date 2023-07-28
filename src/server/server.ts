@@ -56,3 +56,31 @@ app.get('/api', async (_req: any, res: any) => {
     res.status(500).json({ error: 'Error fetching data from API' })
   }
 })
+
+app.post('/api/hideCurrency', (req: any, res: any) => {
+  const { currencyId } = req.body
+
+  try {
+    const currency = cachedData?.find((currency) => currency.id === currencyId)
+    if (currency === undefined) {
+      return res.status(404).json({ error: 'Currency not found' })
+    }
+
+    hiddenCurrencies[currencyId] = {
+      id: currencyId,
+      name: currency.name,
+      symbol: currency.symbol,
+      hidden: true
+    }
+
+    console.log(hiddenCurrencies)
+
+    res.json({
+      message: 'Currency hidden successfully.',
+      ...hiddenCurrencies[currencyId]
+    })
+  } catch (error) {
+    console.error('Error hiding currency:', error)
+    res.status(500).json({ error: 'Error hiding currency' })
+  }
+})
