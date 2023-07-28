@@ -51,6 +51,26 @@ const App: React.FC = () => {
     void fetchData()
   }, [])
 
+  const handleHideCurrency = async (currencyId: any): Promise<void> => {
+    try {
+      await axios.post('http://localhost:3007/api/hideCurrency', {
+        currencyId
+      })
+
+      const hiddenCurrency = value.find((coin: { id: string }) => coin.id === currencyId)
+
+      setValue((prevData) =>
+        prevData.filter((coin: { id: string }) => coin.id !== currencyId)
+      )
+      setHiddenCurrencies((prevHiddenCurrencies) => ({
+        ...prevHiddenCurrencies,
+        [currencyId]: hiddenCurrency
+      }))
+    } catch (error) {
+      console.error('Error hiding currency:', error)
+    }
+  }
+
   useEffect(() => {
     const tableContainer = document.querySelector('.table-container') as HTMLDivElement
 
