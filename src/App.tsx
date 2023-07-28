@@ -71,6 +71,36 @@ const App: React.FC = () => {
     }
   }
 
+  const handleUnhideCurrency = async (currencyId: any): Promise<void> => {
+    try {
+      await axios.post('http://localhost:3007/api/unhideCurrency', {
+        currencyId
+      })
+
+      setValue((prevData) =>
+        prevData.map((coin) =>
+          coin.id === currencyId ? { ...coin, hidden: false } : coin
+        )
+      )
+
+      setHiddenCurrencies((prevHiddenCurrencies) => ({
+        ...prevHiddenCurrencies,
+        [currencyId]: false
+      }))
+
+      const response = await axios.get('http://localhost:3007/api')
+      const data = response.data
+      setValue(data)
+
+      setHiddenCurrencies((prevHiddenCurrencies) => {
+        const { [currencyId]: deletedCurrency, ...updatedHiddenCurrencies } =
+          prevHiddenCurrencies
+        return updatedHiddenCurrencies
+      })
+    } catch (error) {
+      console.error('Error unhiding currency:', error)
+    }
+
   useEffect(() => {
     const tableContainer = document.querySelector('.table-container') as HTMLDivElement
 
@@ -121,8 +151,17 @@ const App: React.FC = () => {
           handleMouseLeaveRow={handleMouseLeaveRow}
         />
         {isVisible && <ScrollToTopButton />}
+
+        {Object.keys(hiddenCurrencies).length > 0 && (
+          <HiddenCurrenciesBox
+          hiddenCurrencies={hiddenCurrencies}
+          showHiddenCurrencies={showHiddenCurrencies}
+          setShowHiddenCurrencies={setShowHiddenCurrencies}
+          handleUnhideCurrency={handleUnhideCurrency}
+          isVisible={isVisible}
+        />
+        )}
     </div>
   )
 }
-
 export default App
