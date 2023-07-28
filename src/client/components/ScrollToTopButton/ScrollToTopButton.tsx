@@ -4,7 +4,9 @@ import './ScrollToTopButton.css'
 
 const ScrollToTopButton: React.FC = () => {
   const scrollToTop = (): void => {
-    const tableContainer = document.querySelector('.table-container') as HTMLDivElement
+    const tableContainer = document.querySelector(
+      '.table-container'
+    ) as HTMLDivElement
 
     tableContainer.scrollTo({ top: 0, behavior: 'smooth' })
   }

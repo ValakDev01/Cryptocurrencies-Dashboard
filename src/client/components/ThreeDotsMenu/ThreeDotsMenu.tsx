@@ -8,7 +8,11 @@ interface ThreeDotsMenuProps {
   itemId: string
 }
 
-const ThreeDotsMenu: React.FC<ThreeDotsMenuProps> = ({ isHovered, handleHideCurrency, itemId }) => {
+const ThreeDotsMenu: React.FC<ThreeDotsMenuProps> = ({
+  isHovered,
+  handleHideCurrency,
+  itemId
+}) => {
   const [isThreeDotsHovered, setIsThreeDotsHovered] = useState<boolean>(false)
   const [clickedThreeDots, setClickedThreeDots] = useState<boolean>(false)
 
@@ -30,9 +34,16 @@ const ThreeDotsMenu: React.FC<ThreeDotsMenuProps> = ({ isHovered, handleHideCurr
 
   return (
     <div
-      className={`${isThreeDotsHovered && isHovered ? 'threeDotsContainer threeDotsStyleOn' : 'threeDotsContainer threeDotsStyleOff'} ${isHovered && !isThreeDotsHovered ? 'threeDotsStyleBackground' : ''}`}
+      className={`${
+        isThreeDotsHovered && isHovered
+          ? 'threeDotsContainer threeDotsStyleOn'
+          : 'threeDotsContainer threeDotsStyleOff'
+      } ${isHovered && !isThreeDotsHovered ? 'threeDotsStyleBackground' : ''}`}
       onMouseEnter={handleMouseEnterThreeDots}
-      onMouseLeave={() => { handleMouseLeaveThreeDots(); handleClickedThreeDotsOff() }}
+      onMouseLeave={() => {
+        handleMouseLeaveThreeDots()
+        handleClickedThreeDotsOff()
+      }}
       onClick={handleClickedThreeDotsOn}
     >
       <div className="threeDotsInnerContainer">
@@ -40,7 +51,14 @@ const ThreeDotsMenu: React.FC<ThreeDotsMenuProps> = ({ isHovered, handleHideCurr
         {clickedThreeDots && isHovered && (
           <div className="notificationStar2">
             <div className="triangle2"></div>
-            <div className="content2" onClick={ () => { handleHideCurrency(itemId) } }><span>Hide</span></div>
+            <div
+              className="content2"
+              onClick={() => {
+                handleHideCurrency(itemId)
+              }}
+            >
+              <span>Hide</span>
+            </div>
           </div>
         )}
       </div>

@@ -27,14 +27,20 @@ const TableRow: React.FC<TableRowProps> = ({
   return (
     <tr
       className={isHovered ? 'hovered-row' : ''}
-      onMouseEnter={() => { handleMouseEnterRow(index) }}
+      onMouseEnter={() => {
+        handleMouseEnterRow(index)
+      }}
       onMouseLeave={handleMouseLeaveRow}
     >
       <td className="firstTd">
         <FaRegStar
           style={{ color: isSelectedStar ? 'gold' : 'gray', cursor: 'pointer' }}
-          onMouseEnter={() => { setSelectedItem(index) }}
-          onMouseLeave={() => { setSelectedItem(null) }}
+          onMouseEnter={() => {
+            setSelectedItem(index)
+          }}
+          onMouseLeave={() => {
+            setSelectedItem(null)
+          }}
         />
 
         {isSelectedStar && (
@@ -49,13 +55,9 @@ const TableRow: React.FC<TableRowProps> = ({
       </td>
       <td style={{ textAlign: 'left' }}>
         <div className="divData">
-          <img src={logoUrl} alt='' className="imgStyle" />
-            <span className="firstSpan">
-              {item.name}
-            </span>
-            <span className="secondSpan">
-              {item.symbol}
-            </span>
+          <img src={logoUrl} alt="" className="imgStyle" />
+          <span className="firstSpan">{item.name}</span>
+          <span className="secondSpan">{item.symbol}</span>
         </div>
       </td>
     </tr>

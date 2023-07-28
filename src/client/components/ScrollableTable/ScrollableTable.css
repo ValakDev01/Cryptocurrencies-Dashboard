@@ -1,10 +1,10 @@
 .scrollable-table th,
 .scrollable-table td {
-    padding: 12px;
-    text-align: center;
-    height: 53px;
+  padding: 12px;
+  text-align: center;
+  height: 53px;
 }
 
 .fontWeight {
-    font-weight: 600;
+  font-weight: 600;
 }
