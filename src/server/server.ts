@@ -84,3 +84,12 @@ app.post('/api/hideCurrency', (req: any, res: any) => {
     res.status(500).json({ error: 'Error hiding currency' })
   }
 })
+
+app.post('/api/unhideCurrency', (req: any, res: any) => {
+  const { currencyId } = req.body
+
+  const { [currencyId]: deletedCurrency, ...updatedHiddenCurrencies } = hiddenCurrencies
+  hiddenCurrencies = updatedHiddenCurrencies
+
+  res.json({ message: 'Currency unhidden successfully.' })
+})
