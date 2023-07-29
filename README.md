@@ -16,6 +16,8 @@
 6. Navigate to the ' src/server ' folder in the terminal or console.
 7. Run `npm run dev` to start a server using nodemon.
 8. Finally navigate to the ' src/database ' folder in the terminal or console.
+9. Run `npm install` to install the required dependencies.
+10. After installing the dependencies, you can start a server with the `npm start` command.
   
 ## External Links
 1. CoinMarketCap API -> https://coinmarketcap.com/api/
