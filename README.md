@@ -12,12 +12,14 @@
 1. Clone this repository on your computer.
 2. Navigate to your project folder in the terminal or console.
 3. Run `npm install` to install the required dependencies.
-5. After installing the dependencies, you can start the application with the `npm start` command.
-6. Navigate to the ' src/server ' folder in the terminal or console.
-7. Run `npm run dev` to start a server using nodemon.
-8. Finally navigate to the ' src/database ' folder in the terminal or console.
-9. Run `npm install` to install the required dependencies.
-10. After installing the dependencies, you can start a server with the `npm start` command.
+4. Navigate to the ' /Cryptocurrencies-Dashboard-FrontEnd ' folder in the terminal or console.
+5. Run `npm install` to install the required dependencies.
+6. After installing the dependencies, you can start the application with the `npm start` command.
+7. Navigate to the ' /Cryptocurrencies-Dashboard-BackEnd/database ' folder in the terminal or console.
+8. Run `npm install` to install the required dependencies.
+9. Run `npm start` to check if the database works well.
+10. Navigate to the ' /Cryptocurrencies-Dashboard-BackEnd/server ' folder in the terminal or console.
+11. Run `npm run dev` to start a server using nodemon.
   
 ## External Links
 1. CoinMarketCap API -> https://coinmarketcap.com/api/
