@@ -130,9 +130,9 @@ const App: React.FC = () => {
     if (tableContainer != null && fixedTable != null) {
       tableContainer.addEventListener('scroll', () => {
         if (tableContainer.scrollLeft > 0) {
-          fixedTable.style.boxShadow = '4px 0 5px rgba(0, 0, 0, 0.1)'
+          fixedTable.classList.add('scrolled')
         } else {
-          fixedTable.style.boxShadow = ''
+          fixedTable.classList.remove('scrolled')
         }
       })
     }

@@ -33,6 +33,10 @@ table tr {
     border-bottom: 1px solid #e0e0e0;
 }
 
+.scrolled {
+    box-shadow: 4px 0 5px rgba(0, 0, 0, 0.1);
+}
+
 ::-webkit-scrollbar {
     height: 6px;
     width: 6px;
