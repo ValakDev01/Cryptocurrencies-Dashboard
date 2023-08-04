@@ -34,3 +34,6 @@
 {"level":"info","message":"Inserting coins into the database...","service":"your-backend-service-name","timestamp":"2023-08-04 13:17:35"}
 {"level":"info","message":"Loading coins from the database...","service":"your-backend-service-name","timestamp":"2023-08-04 13:17:35"}
 {"level":"info","message":"Loaded Coins: ","service":"your-backend-service-name","timestamp":"2023-08-04 13:17:35"}
+{"level":"info","message":"Inserting coins into the database...","service":"your-backend-service-name","timestamp":"2023-08-04 13:59:28"}
+{"level":"info","message":"Loading coins from the database...","service":"your-backend-service-name","timestamp":"2023-08-04 13:59:28"}
+{"level":"info","message":"Loaded Coins: ","service":"your-backend-service-name","timestamp":"2023-08-04 13:59:28"}
