@@ -1,14 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import 'dotenv/config'
 const express = require('express')
-const cors = require('cors')
 const axios = require('axios')
 
-const app = express()
 const logger = require('../logger')
-
-app.use(cors())
-app.use(express.json())
+const router = express.Router()
 
 interface Currency {
   id: string
@@ -27,9 +23,8 @@ const apiEndpoint = process.env.API_ENDPOINT as string
 const hideCurrencyEndpoint = process.env.HIDE_CURRENCY_ENDPOINT as string
 const unhideCurrencyEndpoint = process.env.UNHIDE_CURRENCY_ENDPOINT as string
 const hiddenCurrenciesEndpoint = process.env.HIDDEN_CURRENCIES_ENDPOINT as string
-const port = process.env.PORT as string
 
-app.get(apiEndpoint, async (_req: any, res: any) => {
+router.get(apiEndpoint, async (_req: any, res: any) => {
   try {
     let visibleCryptocurrencies: Currency[]
 
@@ -68,7 +63,7 @@ app.get(apiEndpoint, async (_req: any, res: any) => {
   }
 })
 
-app.post(hideCurrencyEndpoint, (req: any, res: any) => {
+router.post(hideCurrencyEndpoint, (req: any, res: any) => {
   const { currencyId } = req.body
 
   try {
@@ -96,7 +91,7 @@ app.post(hideCurrencyEndpoint, (req: any, res: any) => {
   }
 })
 
-app.post(unhideCurrencyEndpoint, (req: any, res: any) => {
+router.post(unhideCurrencyEndpoint, (req: any, res: any) => {
   const { currencyId } = req.body
 
   const { [currencyId]: deletedCurrency, ...updatedHiddenCurrencies } =
@@ -106,7 +101,7 @@ app.post(unhideCurrencyEndpoint, (req: any, res: any) => {
   res.json({ message: 'Currency unhidden successfully.' })
 })
 
-app.get(hiddenCurrenciesEndpoint, (_req: any, res: any) => {
+router.get(hiddenCurrenciesEndpoint, (_req: any, res: any) => {
   try {
     res.json(hiddenCurrencies)
   } catch (error) {
@@ -115,8 +110,4 @@ app.get(hiddenCurrenciesEndpoint, (_req: any, res: any) => {
   }
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`)
-})
-
-export { app }
+export { router }

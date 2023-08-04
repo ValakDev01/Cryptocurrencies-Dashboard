@@ -5,19 +5,21 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
-    "dev": "nodemon server"
+    "start": "node app",
+    "dev": "nodemon app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/express": "^4.17.17",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "ts-node": "^10.7.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "nodemon": "^2.0.12"
   }
 }

@@ -11,3 +11,5 @@
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-04 12:40:39"}
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-04 12:40:47"}
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-04 12:40:47"}
+{"level":"info","message":"Example app listening on port 3007!","service":"your-backend-service-name","timestamp":"2023-08-04 12:54:08"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-04 12:54:14"}
