@@ -19,7 +19,7 @@
 8. Run `npm install` to install the required dependencies.
 9. Run `npm start` to check if the database works well.
 10. Navigate to the ' /Cryptocurrencies-Dashboard-BackEnd/server ' folder in the terminal or console.
-11. Run `npm run dev` to start a server using nodemon.
+11. Run `npm run dev` to start a server using nodemon (if there is a problem with importing 'cors' then reinstall the '@types/cors' extension using Eslint).
   
 ## External Links
 1. CoinMarketCap API -> https://coinmarketcap.com/api/
