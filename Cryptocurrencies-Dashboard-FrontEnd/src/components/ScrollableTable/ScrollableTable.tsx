@@ -2,7 +2,7 @@ import React from 'react'
 
 import ScrollableTableHead from '../ScrollableTableHead/ScrollableTableHead'
 import ScrollableTableBody from '../ScrollableTableBody/ScrollableTableBody'
-import type { CoinData } from '../../../App'
+import type { CoinData } from '../../App'
 
 import './ScrollableTable.css'
 
@@ -12,6 +12,7 @@ interface ScrollableTableProps {
   handleMouseEnterRow: (index: number) => void
   handleMouseLeaveRow: () => void
   handleHideCurrency: (index: string) => void
+  headers: string[]
 }
 
 const ScrollableTable: React.FC<ScrollableTableProps> = ({
@@ -19,12 +20,15 @@ const ScrollableTable: React.FC<ScrollableTableProps> = ({
   hoveredItem,
   handleMouseEnterRow,
   handleMouseLeaveRow,
-  handleHideCurrency
+  handleHideCurrency,
+  headers
 }) => {
   return (
     <div className="scrollable-table">
       <table className="fontWeight">
-        <ScrollableTableHead />
+        <ScrollableTableHead
+          headers={headers}
+        />
         <ScrollableTableBody
           value={value}
           hoveredItem={hoveredItem}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaRegStar } from 'react-icons/fa'
 
-import type { CoinData } from '../../../App'
+import type { CoinData } from '../../App'
 
 import './TableRow.css'
 

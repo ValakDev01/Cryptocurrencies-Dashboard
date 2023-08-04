@@ -1,6 +1,6 @@
 import React from 'react'
 
-import type { CoinData } from '../../../App'
+import type { CoinData } from '../../App'
 
 import './HiddenCurrenciesBox.css'
 

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import FixedTable from './client/components/FixedTable/FixedTable'
-import ScrollableTable from './client/components/ScrollableTable/ScrollableTable'
-import ScrollToTopButton from './client/components/ScrollToTopButton/ScrollToTopButton'
-import HiddenCurrenciesBox from './client/components/HiddenCurrenciesBox/HiddenCurrenciesBox'
+import FixedTable from './components/FixedTable/FixedTable'
+import ScrollableTable from './components/ScrollableTable/ScrollableTable'
+import ScrollToTopButton from './components/ScrollToTopButton/ScrollToTopButton'
+import HiddenCurrenciesBox from './components/HiddenCurrenciesBox/HiddenCurrenciesBox'
 import 'reflect-metadata'
 
 import './App.css'
@@ -146,6 +146,21 @@ const App: React.FC = () => {
     setHoveredItem(null)
   }
 
+  const headers: string[] = [
+    '',
+    '#',
+    'Name',
+    'Price',
+    '1h %',
+    '24h %',
+    '7d %',
+    'Market Cap',
+    'Volume(24h)',
+    'Circulating Supply',
+    'Last 7 Days',
+    ''
+  ]
+
   return (
     <div className="table-container">
       <FixedTable
@@ -153,6 +168,7 @@ const App: React.FC = () => {
         hoveredItem={hoveredItem}
         handleMouseEnterRow={handleMouseEnterRow}
         handleMouseLeaveRow={handleMouseLeaveRow}
+        headers={headers}
         />
         <ScrollableTable
           value={value}
@@ -160,6 +176,7 @@ const App: React.FC = () => {
           handleMouseEnterRow={handleMouseEnterRow}
           handleMouseLeaveRow={handleMouseLeaveRow}
           handleHideCurrency={handleHideCurrency}
+          headers={headers}
         />
         {isVisible && <ScrollToTopButton />}
 

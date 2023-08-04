@@ -2,7 +2,7 @@ import React from 'react'
 
 import FixedTableHead from '../FixedTableHead/FixedTableHead'
 import FixedTableBody from '../FixedTableBody/FixedTableBody'
-import type { CoinData } from '../../../App'
+import type { CoinData } from '../../App'
 
 import './FixedTable.css'
 
@@ -11,17 +11,21 @@ interface FixedTableProps {
   hoveredItem: number | null
   handleMouseEnterRow: (index: number) => void
   handleMouseLeaveRow: () => void
+  headers: string[]
 }
 
 const FixedTable: React.FC<FixedTableProps> = ({
   value,
   hoveredItem,
   handleMouseEnterRow,
-  handleMouseLeaveRow
+  handleMouseLeaveRow,
+  headers
 }) => {
   return (
     <table className="fixed-table">
-      <FixedTableHead />
+      <FixedTableHead
+        headers={headers}
+      />
       <FixedTableBody
         value={value}
         hoveredItem={hoveredItem}
