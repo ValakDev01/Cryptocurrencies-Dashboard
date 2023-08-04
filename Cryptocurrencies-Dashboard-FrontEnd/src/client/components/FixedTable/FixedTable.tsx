@@ -1,7 +1,9 @@
 import React from 'react'
+
 import FixedTableHead from '../FixedTableHead/FixedTableHead'
 import FixedTableBody from '../FixedTableBody/FixedTableBody'
 import type { CoinData } from '../../../App'
+
 import './FixedTable.css'
 
 interface FixedTableProps {

@@ -1,6 +1,7 @@
+import axios from 'axios'
+
 import { AppDataSource } from './data-source'
 import { CoinInfo } from './entity/User'
-import axios from 'axios'
 
 interface CoinData {
   id: number

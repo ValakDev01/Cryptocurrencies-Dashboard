@@ -1,5 +1,7 @@
 import React from 'react'
+
 import type { CoinData } from '../../../App'
+
 import './HiddenCurrenciesBox.css'
 
 interface HiddenCurrenciesBoxProps {

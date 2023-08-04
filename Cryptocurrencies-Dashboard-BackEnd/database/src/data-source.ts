@@ -1,5 +1,6 @@
 import 'reflect-metadata'
 import { DataSource } from 'typeorm'
+
 import { CoinInfo } from './entity/User'
 
 export const AppDataSource = new DataSource({

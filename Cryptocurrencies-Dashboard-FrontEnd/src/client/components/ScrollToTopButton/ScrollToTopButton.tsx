@@ -1,5 +1,6 @@
 import React from 'react'
 import { IoMdArrowRoundUp } from 'react-icons/io'
+
 import './ScrollToTopButton.css'
 
 const ScrollToTopButton: React.FC = () => {

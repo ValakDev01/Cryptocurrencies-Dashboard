@@ -1,7 +1,9 @@
 import React from 'react'
+
 import ScrollableTableHead from '../ScrollableTableHead/ScrollableTableHead'
 import ScrollableTableBody from '../ScrollableTableBody/ScrollableTableBody'
 import type { CoinData } from '../../../App'
+
 import './ScrollableTable.css'
 
 interface ScrollableTableProps {

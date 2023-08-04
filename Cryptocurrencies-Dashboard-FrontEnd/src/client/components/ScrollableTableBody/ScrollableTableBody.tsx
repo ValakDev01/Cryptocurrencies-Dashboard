@@ -1,5 +1,6 @@
 import React from 'react'
 import { GoTriangleDown, GoTriangleUp } from 'react-icons/go'
+
 import ThreeDotsMenu from '../ThreeDotsMenu/ThreeDotsMenu'
 import type { CoinData } from '../../../App'
 

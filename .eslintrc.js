@@ -26,9 +26,22 @@ module.exports = {
         "project": "./tsconfig.json"  
     },
     "plugins": [
-        "react"
+        "react",
+        "@typescript-eslint",
+        "import"
     ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    },
     "rules": {
-        '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }]
+        '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
+        'import/order': ['error', {
+            "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+            "newlines-between": "always"
+        }]
     }
 }

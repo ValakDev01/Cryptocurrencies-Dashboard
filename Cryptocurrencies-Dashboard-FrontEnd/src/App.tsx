@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+
 import FixedTable from './client/components/FixedTable/FixedTable'
 import ScrollableTable from './client/components/ScrollableTable/ScrollableTable'
 import ScrollToTopButton from './client/components/ScrollToTopButton/ScrollToTopButton'
 import HiddenCurrenciesBox from './client/components/HiddenCurrenciesBox/HiddenCurrenciesBox'
 import 'reflect-metadata'
-import axios from 'axios'
+
 import './App.css'
 
 export interface CoinData {
@@ -152,7 +154,6 @@ const App: React.FC = () => {
           hoveredItem={hoveredItem}
           handleMouseEnterRow={handleMouseEnterRow}
           handleMouseLeaveRow={handleMouseLeaveRow}
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
           handleHideCurrency={handleHideCurrency}
         />
         {isVisible && <ScrollToTopButton />}
@@ -162,7 +163,6 @@ const App: React.FC = () => {
           hiddenCurrencies={hiddenCurrencies}
           showHiddenCurrencies={showHiddenCurrencies}
           setShowHiddenCurrencies={setShowHiddenCurrencies}
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
           handleUnhideCurrency={handleUnhideCurrency}
           isVisible={isVisible}
         />
