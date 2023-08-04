@@ -10,6 +10,8 @@ interface CoinData {
   hidden: boolean
 }
 
+const hiddenCurrenciesUrl = process.env.HIDDEN_CURRENCIES_URL as string
+
 async function updateCoinDatabase (
   data: Record<string, CoinData>
 ): Promise<void> {
@@ -54,7 +56,7 @@ AppDataSource.initialize()
 async function fetchCoinInfo (): Promise<any> {
   try {
     const response = await axios.get(
-      'http://localhost:3007/api/hiddenCurrencies'
+      hiddenCurrenciesUrl
     )
     const data = response.data
     return data

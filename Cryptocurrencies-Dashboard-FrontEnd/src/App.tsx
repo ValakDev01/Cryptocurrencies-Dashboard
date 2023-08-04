@@ -26,6 +26,11 @@ export interface CoinData {
   total_supply: number
 }
 
+const baseApiUrl = process.env.REACT_APP_BASE_API_URL as string
+const hiddenCurrenciesUrl = process.env.REACT_APP_HIDDEN_CURRENCIES_URL as string
+const hideCurrencyUrl = process.env.REACT_APP_HIDE_CURRENCY_URL as string
+const unhideCurrencyUrl = process.env.REACT_APP_UNHIDE_CURRENCY_URL as string
+
 const App: React.FC = () => {
   const [value, setValue] = useState<CoinData[]>([])
   const [isVisible, setIsVisible] = useState<boolean>(false)
@@ -36,13 +41,13 @@ const App: React.FC = () => {
   useEffect(() => {
     async function fetchData (): Promise<void> {
       try {
-        const response = await axios.get('http://localhost:3007/api')
+        const response = await axios.get(baseApiUrl)
         const data = response.data
 
         setValue(data)
 
         const hiddenResponse = await axios.get(
-          'http://localhost:3007/api/hiddenCurrencies'
+          hiddenCurrenciesUrl
         )
         const hiddenData = hiddenResponse.data
 
@@ -57,7 +62,7 @@ const App: React.FC = () => {
 
   const handleHideCurrency = async (currencyId: any): Promise<void> => {
     try {
-      await axios.post('http://localhost:3007/api/hideCurrency', {
+      await axios.post(hideCurrencyUrl, {
         currencyId
       })
 
@@ -77,7 +82,7 @@ const App: React.FC = () => {
 
   const handleUnhideCurrency = async (currencyId: any): Promise<void> => {
     try {
-      await axios.post('http://localhost:3007/api/unhideCurrency', {
+      await axios.post(unhideCurrencyUrl, {
         currencyId
       })
 
@@ -92,7 +97,7 @@ const App: React.FC = () => {
         [currencyId]: false
       }))
 
-      const response = await axios.get('http://localhost:3007/api')
+      const response = await axios.get(baseApiUrl)
       const data = response.data
       setValue(data)
 

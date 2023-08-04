@@ -20,7 +20,13 @@ const cacheDurationInSeconds: number = 60
 
 let hiddenCurrencies: Record<string, Currency> = {}
 
-app.get('/api', async (_req: any, res: any) => {
+const apiEndpoint = process.env.API_ENDPOINT as string
+const hideCurrencyEndpoint = process.env.HIDE_CURRENCY_ENDPOINT as string
+const unhideCurrencyEndpoint = process.env.UNHIDE_CURRENCY_ENDPOINT as string
+const hiddenCurrenciesEndpoint = process.env.HIDDEN_CURRENCIES_ENDPOINT as string
+const port = process.env.PORT as string
+
+app.get(apiEndpoint, async (_req: any, res: any) => {
   try {
     let visibleCryptocurrencies: Currency[]
 
@@ -35,8 +41,8 @@ app.get('/api', async (_req: any, res: any) => {
           !(hiddenCurrencies[currency.id]?.hidden ?? false) ?? false
       )
     } else {
-      const apiKey = '9b08de90-b259-4fac-9f94-66b420c41538'
-      const apiUrl = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=${apiKey}`
+      const apiKey = process.env.API_KEY as string
+      const apiUrl = `${process.env.API_URL as string}${apiKey}`
 
       const response = await axios.get(apiUrl)
       const data = response.data
@@ -59,7 +65,7 @@ app.get('/api', async (_req: any, res: any) => {
   }
 })
 
-app.post('/api/hideCurrency', (req: any, res: any) => {
+app.post(hideCurrencyEndpoint, (req: any, res: any) => {
   const { currencyId } = req.body
 
   try {
@@ -87,7 +93,7 @@ app.post('/api/hideCurrency', (req: any, res: any) => {
   }
 })
 
-app.post('/api/unhideCurrency', (req: any, res: any) => {
+app.post(unhideCurrencyEndpoint, (req: any, res: any) => {
   const { currencyId } = req.body
 
   const { [currencyId]: deletedCurrency, ...updatedHiddenCurrencies } =
@@ -97,7 +103,7 @@ app.post('/api/unhideCurrency', (req: any, res: any) => {
   res.json({ message: 'Currency unhidden successfully.' })
 })
 
-app.get('/api/hiddenCurrencies', (_req: any, res: any) => {
+app.get(hiddenCurrenciesEndpoint, (_req: any, res: any) => {
   try {
     res.json(hiddenCurrencies)
   } catch (error) {
@@ -106,8 +112,8 @@ app.get('/api/hiddenCurrencies', (_req: any, res: any) => {
   }
 })
 
-app.listen(3007, () => {
-  console.log('Example app listening on port 3007!')
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}!`)
 })
 
 export { app }
