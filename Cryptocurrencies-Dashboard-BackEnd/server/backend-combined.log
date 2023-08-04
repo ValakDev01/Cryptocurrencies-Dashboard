@@ -18,3 +18,4 @@
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-04 13:05:12"}
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-04 13:06:30"}
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-04 13:06:30"}
+{"level":"info","message":{"74":{"hidden":true,"id":74,"name":"Dogecoin","symbol":"DOGE"}},"service":"your-backend-service-name","timestamp":"2023-08-04 13:10:12"}

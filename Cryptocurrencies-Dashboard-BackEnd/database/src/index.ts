@@ -1,4 +1,5 @@
 import axios from 'axios'
+import 'dotenv/config'
 
 import { AppDataSource } from './data-source'
 import { CoinInfo } from './entity/User'
