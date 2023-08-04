@@ -18,5 +18,4 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
   },
-  "include": ["Cryptocurrencies-Dashboard-FrontEnd/src", ".eslintrc.js", "Cryptocurrencies-Dashboard-BackEnd/server", "Cryptocurrencies-Dashboard-BackEnd/database", "Cryptocurrencies-Dashboard-BackEnd/logger.ts"]
 }

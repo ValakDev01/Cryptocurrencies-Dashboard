@@ -21,7 +21,8 @@
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^5.1.6",
     "typeorm": "^0.3.17",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "winston": "^3.10.0"
   },
   "scripts": {
     "start": "react-scripts start",

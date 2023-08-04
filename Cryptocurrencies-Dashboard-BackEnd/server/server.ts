@@ -1,8 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+import 'dotenv/config'
 const express = require('express')
 const cors = require('cors')
 const axios = require('axios')
+
 const app = express()
+const logger = require('../logger')
 
 app.use(cors())
 app.use(express.json())
@@ -35,7 +38,7 @@ app.get(apiEndpoint, async (_req: any, res: any) => {
       cacheTimestamp !== null &&
       Date.now() - cacheTimestamp < cacheDurationInSeconds * 1000
     ) {
-      console.log('Serving data from cache')
+      logger.info('Serving data from cache')
       visibleCryptocurrencies = cachedData.filter(
         (currency) =>
           !(hiddenCurrencies[currency.id]?.hidden ?? false) ?? false
@@ -60,7 +63,7 @@ app.get(apiEndpoint, async (_req: any, res: any) => {
 
     res.json(visibleCryptocurrencies)
   } catch (error) {
-    console.error('Error fetching data from CoinMarketCap API:', error)
+    logger.error('Error fetching data from CoinMarketCap API:', error)
     res.status(500).json({ error: 'Error fetching data from API' })
   }
 })
@@ -81,14 +84,14 @@ app.post(hideCurrencyEndpoint, (req: any, res: any) => {
       hidden: true
     }
 
-    console.log(hiddenCurrencies)
+    logger.info(hiddenCurrencies)
 
     res.json({
       message: 'Currency hidden successfully.',
       ...hiddenCurrencies[currencyId]
     })
   } catch (error) {
-    console.error('Error hiding currency:', error)
+    logger.error('Error hiding currency:', error)
     res.status(500).json({ error: 'Error hiding currency' })
   }
 })
@@ -107,7 +110,7 @@ app.get(hiddenCurrenciesEndpoint, (_req: any, res: any) => {
   try {
     res.json(hiddenCurrencies)
   } catch (error) {
-    console.error('Error fetching hidden currencies:', error)
+    logger.error('Error fetching hidden currencies:', error)
     res.status(500).json({ error: 'Error fetching hidden currencies' })
   }
 })

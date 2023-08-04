@@ -3,6 +3,8 @@ import axios from 'axios'
 import { AppDataSource } from './data-source'
 import { CoinInfo } from './entity/User'
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const logger = require('../../logger')
 interface CoinData {
   id: number
   name: string
@@ -22,11 +24,11 @@ async function updateCoinDatabase (
   )
 
   if (coinsToRemove.length > 0) {
-    console.log('Usuwanie przestarzałych monet z bazy danych...')
+    logger.info('Removing obsolete coins from the database...')
     await AppDataSource.manager.remove(coinsToRemove)
   }
 
-  console.log('Aktualizacja/Wstawianie monet do bazy danych...')
+  logger.info('Inserting coins into the database...')
   for (const key in data) {
     const coinData = data[key]
     const coin = new CoinInfo()
@@ -35,7 +37,7 @@ async function updateCoinDatabase (
     coin.symbol = coinData.symbol
     coin.isHidden = coinData.hidden
     await AppDataSource.manager.save(coin)
-    console.log(`Zapisano/Zaktualizowano monetę o identyfikatorze: ${coin.id}`)
+    logger.info(`Coin ID updated: ${coin.id}`)
   }
 }
 
@@ -45,12 +47,12 @@ AppDataSource.initialize()
 
     await updateCoinDatabase(data)
 
-    console.log('Ładowanie monet z bazy danych...')
+    logger.info('Loading coins from the database...')
     const coins = await AppDataSource.manager.find(CoinInfo)
-    console.log('Wczytane monety: ', coins)
+    logger.info('Loaded Coins: ', coins)
   })
   .catch((error) => {
-    console.log(error)
+    logger.error(error)
   })
 
 async function fetchCoinInfo (): Promise<any> {
@@ -61,6 +63,6 @@ async function fetchCoinInfo (): Promise<any> {
     const data = response.data
     return data
   } catch (error) {
-    console.error(error)
+    logger.error(error)
   }
 }
