@@ -2,7 +2,7 @@ import React from 'react'
 
 import FixedTableHead from '../FixedTableHead/FixedTableHead'
 import FixedTableBody from '../FixedTableBody/FixedTableBody'
-import type { CoinData } from '../../App'
+import type { CoinData } from '../Dashboard/Dashboard' 
 
 import './FixedTable.css'
 

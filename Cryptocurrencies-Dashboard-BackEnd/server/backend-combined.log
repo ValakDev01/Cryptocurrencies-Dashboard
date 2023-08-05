@@ -96,3 +96,24 @@
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-04 15:44:49"}
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-04 15:47:58"}
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-04 15:49:01"}
+{"level":"info","message":"Example app listening on port 3007!","service":"your-backend-service-name","timestamp":"2023-08-05 11:17:52"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 11:18:22"}
+{"level":"info","message":{"3890":{"hidden":true,"id":3890,"name":"Polygon","symbol":"MATIC"}},"service":"your-backend-service-name","timestamp":"2023-08-05 11:21:22"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 11:54:35"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 12:34:15"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 12:40:11"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 12:40:45"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 12:40:45"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 12:52:08"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 12:52:23"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 12:52:23"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 12:52:38"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 12:52:38"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 12:52:48"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 12:52:48"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:07:19"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:07:27"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:07:27"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:08:08"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:08:08"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:08:21"}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import TableRow from '../TableRow/TableRow'
-import type { CoinData } from '../../App'
+import type { CoinData } from '../Dashboard/Dashboard' 
 
 interface FixedTableBodyProps {
   value: CoinData[]
