@@ -117,3 +117,8 @@
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:08:08"}
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:08:08"}
 {"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:08:21"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:21:25"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:21:26"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:21:26"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:21:49"}
+{"level":"info","message":"Serving data from cache","service":"your-backend-service-name","timestamp":"2023-08-05 13:21:49"}
