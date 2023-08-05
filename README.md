@@ -17,10 +17,11 @@
 6. After installing the dependencies, you can start the application with the `npm start` command.
 7. Navigate to the ' /Cryptocurrencies-Dashboard-BackEnd/database ' folder in the terminal or console.
 8. Run `npm install` to install the required dependencies.
-9. Run `npm start` to check if the database works well.
+9. Run `npm start` to check if the database works properly.
 10. Navigate to the ' /Cryptocurrencies-Dashboard-BackEnd/server ' folder in the terminal or console.
-11. Run `npm run dev` to start a server using nodemon (if there is a problem with importing 'cors' then run the `npm install --save-dev @types/cors` command inside server folder).
-  
+11. Run `npm install` to install the required dependencies.
+12. Run `npm run dev` to start a server using nodemon
+    
 ## External Links
 1. CoinMarketCap API -> https://coinmarketcap.com/api/
 2. React Icons Library -> https://react-icons.github.io/react-icons/
